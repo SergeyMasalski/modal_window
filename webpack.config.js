@@ -12,7 +12,7 @@ const pattern = ext => {
   return isDev ? `[name].${ext}` : `[name].[hash].${ext}`;
 };
 
-module.exports = {
+const config = {
   context: path.resolve(__dirname, 'src'),
 
   mode: 'development',
@@ -25,6 +25,8 @@ module.exports = {
     filename: pattern('js'),
     path: path.resolve(__dirname, 'dist'),
   },
+
+  watch: isDev,
 
   optimization: {
     splitChunks: {
@@ -68,3 +70,5 @@ module.exports = {
     ],
   },
 };
+
+module.exports = config;

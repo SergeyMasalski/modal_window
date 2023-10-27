@@ -62,3 +62,37 @@
     }
   }
 }
+
+.container-message {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  padding: 1rem;
+  width: 70%;
+  border-radius: 7px;
+  display: flex;
+  flex-flow: column;
+
+  &__success {
+    width: max-content;
+    margin: auto;
+    color: rgb(246, 243, 243);
+  }
+
+  &__bold {
+    font-weight: 700;
+  }
+}
+
+.alert {
+  background: rgb(233, 166, 166);
+  font-size: 0.8rem;
+  gap: 1rem;
+}
+
+.success {
+  background-color: rgb(132, 192, 147);
+  font-size: 1rem;
+}
