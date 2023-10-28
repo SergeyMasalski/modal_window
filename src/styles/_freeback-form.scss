@@ -66,6 +66,12 @@
     color: rgb(246, 243, 243);
   }
 
+  &__alert {
+    width: max-content;
+    margin: auto;
+    font-weight: 700;
+  }
+
   &__bold {
     font-weight: 700;
   }

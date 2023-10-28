@@ -11,7 +11,7 @@ const sendRequest = (url, body) => {
     };
 
     xhr.onerror = () => {
-      reject(xhr.response);
+      reject(new Error('Ошибка соединения'));
     };
 
     xhr.send(JSON.stringify(body));

@@ -3,7 +3,7 @@ const createElementAlert = (fieldName, message) => {
   element.innerText = message;
   const infoField = document.createElement('span');
   infoField.classList.add('container-message__bold');
-  infoField.innerText = `Поле ${fieldName}:`;
+  infoField.innerText = `Поле ${fieldName}: `;
   element.prepend(infoField);
 
   return element;

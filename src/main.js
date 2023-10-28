@@ -1,7 +1,8 @@
 import Inputmask from 'inputmask';
 import validation from './modules/validation.module';
 import sendRequest from './modules/ajax.module';
-import createElementAlert from './modules/createAlertElement';
+import createElementAlert from './modules/createAlertElement.module';
+import createAlertContainer from './modules/createAlertContainer.module';
 
 import './styles/style.scss';
 
@@ -45,16 +46,19 @@ submit.addEventListener('click', event => {
         inputs.forEach(item => (item.value = ''));
       })
       .catch(error => {
+        if (error instanceof Error) {
+          const container = createAlertContainer(error.message);
+          form.append(container);
+
+          setTimeout(() => container.remove(), 4000);
+
+          return;
+        }
+
         const errorObject = JSON.parse(error);
         const errors = errorObject.fields;
 
-        const container = document.createElement('div');
-        container.classList.add('container-message');
-        container.classList.add('alert');
-        const info = document.createElement('div');
-        info.classList.add('container-message__alert');
-        info.innerText = 'Неверно введены данные:';
-        container.append(info);
+        const container = createAlertContainer('Неверно введены данные');
 
         for (const field in errors) {
           if (errors.hasOwnProperty(field)) {
@@ -91,15 +95,14 @@ const closeWindow = document.querySelector('.container-animation__close');
 const containerAnimation = document.querySelector('.container-animation');
 const animationWindow = document.querySelector('.container-animation__window');
 const bodyDocument = document.querySelector('body');
-const scrollbar = document.querySelector('.scrollbar');
 
-openWindow.addEventListener('click', clickEvent => {
+openWindow.addEventListener('click', event => {
   containerAnimation.classList.add('container-animation_show');
   animationWindow.classList.add('container-animation__window_show');
   bodyDocument.classList.add('stop-scroll');
 });
 
-closeWindow.addEventListener('click', clickEvent => {
+closeWindow.addEventListener('click', event => {
   containerAnimation.classList.remove('container-animation_show');
   animationWindow.classList.remove('container-animation__window_show');
   bodyDocument.classList.remove('stop-scroll');

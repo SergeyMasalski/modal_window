@@ -26,8 +26,6 @@ const config = {
     path: path.resolve(__dirname, 'dist'),
   },
 
-  watch: isDev,
-
   optimization: {
     splitChunks: {
       chunks: 'all',
