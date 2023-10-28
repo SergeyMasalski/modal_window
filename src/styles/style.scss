@@ -1,6 +1,20 @@
 @import './_freeback-form.scss';
+@import './vars';
 
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
+
+  &::-webkit-scrollbar {
+    width: $width-scrollbar;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 0.5rem;
+  }
 }

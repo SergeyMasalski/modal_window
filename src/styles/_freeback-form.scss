@@ -1,3 +1,5 @@
+@import './vars';
+
 .freeback-form {
   display: flex;
   flex-flow: column;
@@ -15,24 +17,7 @@
   }
 
   &__submit {
-    width: max-content;
-    box-sizing: border-box;
-    background: transparent;
-    border: 1px solid rgba(0, 0, 139, 0.8);
-    box-shadow: 0px 0px 2px 0px rgba(0, 0, 139, 0.8);
-    text-transform: uppercase;
-    padding: 10px 7px;
     margin-left: auto;
-    color: darkblue;
-    letter-spacing: 1px;
-    font-weight: 600;
-
-    &:hover {
-      color: rgb(255, 255, 250);
-      box-shadow: none;
-      background: darkblue;
-      cursor: pointer;
-    }
   }
 }
 
@@ -95,4 +80,99 @@
 .success {
   background-color: rgb(132, 192, 147);
   font-size: 1rem;
+}
+
+.button-submit {
+  width: max-content;
+  box-sizing: border-box;
+  background: transparent;
+  border: 1px solid rgba(0, 0, 139, 0.8);
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 139, 0.8);
+  text-transform: uppercase;
+  padding: 10px 7px;
+  color: darkblue;
+  letter-spacing: 1px;
+  font-weight: 600;
+
+  &:hover {
+    color: rgb(255, 255, 250);
+    box-shadow: none;
+    background: darkblue;
+    cursor: pointer;
+  }
+}
+
+.animation {
+  display: flex;
+  justify-content: center;
+
+  &__open {
+    margin: 5rem 0;
+  }
+}
+
+.container-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  display: flex;
+  flex-flow: column;
+  gap: 1.5rem;
+  z-index: -1;
+
+  &__window {
+    display: flex;
+    flex-flow: column;
+    gap: 1rem;
+    position: relative;
+    box-sizing: border-box;
+    width: 30%;
+    height: max-content;
+    padding: 1rem;
+    background: rgb(155, 104, 163);
+    color: rgb(255, 255, 250);
+    left: -150vw;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    &_show {
+      animation-name: showWindow;
+      animation-duration: 1.5s;
+      animation-fill-mode: forwards;
+    }
+  }
+
+  &__close {
+    background-color: azure;
+    text-transform: uppercase;
+    border: none;
+    box-sizing: border-box;
+    padding: 0.5rem;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &_show {
+    z-index: 1;
+  }
+}
+
+.stop-scroll {
+  overflow: hidden;
+  width: $width-body-hidden;
+}
+
+@keyframes showWindow {
+  0% {
+    left: -150vw;
+  }
+
+  100% {
+    left: 50%;
+  }
 }

@@ -17,8 +17,24 @@ router.post('/', async (ctx, next) => {
   const errors = {};
   for (const key in bodyRequest) {
     if (bodyRequest.hasOwnProperty(key)) {
-      if (bodyRequest[key].length < 30) {
-        errors[key] = `Недопустимые данные, длина должна быть больше 30 символов`;
+      const responseKey = 'input' + key[0].toUpperCase() + key.slice(1);
+
+      switch (key) {
+        case 'name':
+          if (bodyRequest[key].length < 2) errors[responseKey] = `Недопустимые данные, длина должна не меньше 2 символов`;
+          break;
+        case 'phone':
+          if (bodyRequest[key].includes('_')) errors[responseKey] = `Заполните телефон полностью`;
+          break;
+        case 'email':
+          if (bodyRequest[key].length < 10) errors[responseKey] = `Недопустимые данные, длина должна не меньше 10 символов`;
+          break;
+        case 'message':
+          if (bodyRequest[key].length < 2) errors[responseKey] = `Недопустимые данные, длина должна не меньше 2 символов`;
+          break;
+
+        default:
+          break;
       }
     }
   }

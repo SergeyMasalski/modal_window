@@ -59,16 +59,16 @@ submit.addEventListener('click', event => {
         for (const field in errors) {
           if (errors.hasOwnProperty(field)) {
             switch (field) {
-              case 'email':
-                container.append(createElementAlert(field, errors[field]));
+              case 'inputEmail':
+                container.append(createElementAlert('email', errors[field]));
                 break;
-              case 'message':
+              case 'inputMessage':
                 container.append(createElementAlert('сообщение', errors[field]));
                 break;
-              case 'name':
+              case 'inputName':
                 container.append(createElementAlert('имя', errors[field]));
                 break;
-              case 'phone':
+              case 'inputPhone':
                 container.append(createElementAlert('телефон', errors[field]));
                 break;
 
@@ -82,4 +82,25 @@ submit.addEventListener('click', event => {
         setTimeout(() => container.remove(), 4000);
       });
   }
+});
+
+// Modal Window
+
+const openWindow = document.querySelector('.animation__open');
+const closeWindow = document.querySelector('.container-animation__close');
+const containerAnimation = document.querySelector('.container-animation');
+const animationWindow = document.querySelector('.container-animation__window');
+const bodyDocument = document.querySelector('body');
+const scrollbar = document.querySelector('.scrollbar');
+
+openWindow.addEventListener('click', clickEvent => {
+  containerAnimation.classList.add('container-animation_show');
+  animationWindow.classList.add('container-animation__window_show');
+  bodyDocument.classList.add('stop-scroll');
+});
+
+closeWindow.addEventListener('click', clickEvent => {
+  containerAnimation.classList.remove('container-animation_show');
+  animationWindow.classList.remove('container-animation__window_show');
+  bodyDocument.classList.remove('stop-scroll');
 });

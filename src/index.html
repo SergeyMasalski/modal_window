@@ -11,31 +11,34 @@
         <h2 class="freeback-form__header">Форма обратной связи</h2>
         <div class="container-input">
           <label for="name" class="container-input__label">Введите имя:</label>
-          <input type="text" id="name" class="container-input__text" placeholder="Ваше имя" value="Sergey" />
+          <input type="text" id="name" class="container-input__text" placeholder="Ваше имя" />
         </div>
         <div class="container-input">
           <label for="email" class="container-input__label">Введите свой email:</label>
-          <input type="email" id="email" class="container-input__text" placeholder="Ваша почта" value="mas@mail.com" />
+          <input type="email" id="email" class="container-input__text" placeholder="Ваша почта" />
         </div>
         <div class="container-input">
           <label for="phone" class="container-input__label">Введите свой телефон:</label>
-          <input type="text" id="phone" class="container-input__text" placeholder="Ваш номер телефона" value="(375)-29-555-55-55" />
+          <input type="text" id="phone" class="container-input__text" placeholder="Ваш номер телефона" />
         </div>
         <div class="container-input">
           <label for="message" class="container-input__label">Введите сообщение:</label>
           <textarea id="message" rows="8" class="container-input__text container-input__text_area" placeholder="Ваше сообщение..."></textarea>
         </div>
 
-        <!-- <div class="container-message alert">
-          <div class="container-message__alert">Неверно введены данные:</div>
-          <div class="container-message__alert"><span class="container-message__bold">Поле имя:</span> Длина более 5 символов</div>
-          <div class="container-message__alert"><span class="container-message__bold">Поле mail:</span> длина более 5 символов</div>
-          <div class="container-message__alert"><span class="container-message__bold">Телефон:</span> Введите полностью телефон</div>
-          <div class="container-message__alert"><span class="container-message__bold">Поле сообщение:</span> длина более 5 символов</div>
-        </div> -->
-
-        <button type="submit" class="freeback-form__submit">отправить</button>
+        <button type="submit" class="button-submit freeback-form__submit">отправить</button>
       </form>
     </section>
+
+    <section class="animation">
+      <button class="button-submit animation__open">Открыть модальное окно</button>
+    </section>
+
+    <div class="container-animation">
+      <div class="container-animation__window">
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda facere tenetur explicabo maiores fuga fugit harum sapiente quas dolore. Dolores exercitationem repudiandae nihil reprehenderit perspiciatis optio eos alias, aspernatur enim?</div>
+        <button class="container-animation__close">close</button>
+      </div>
+    </div>
   </body>
 </html>
