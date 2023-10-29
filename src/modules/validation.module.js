@@ -4,9 +4,11 @@ export default function validation(form) {
     .map(element => {
       if (element.value !== '' && !element?.validationMessage) {
         element.classList.remove('container-input__text_not-valid');
+        element.nextElementSibling.classList.remove('container-input__alert-message_show');
         return element;
       }
       element.classList.add('container-input__text_not-valid');
+      element.nextElementSibling.classList.add('container-input__alert-message_show');
       return element;
     })
     .filter(item => {

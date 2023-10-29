@@ -24,6 +24,7 @@
 .container-input {
   display: flex;
   flex-flow: column;
+  position: relative;
 
   &__label {
     position: relative;
@@ -44,6 +45,24 @@
 
     &_area {
       resize: none;
+    }
+  }
+
+  &__alert-message {
+    display: none;
+    position: absolute;
+    background-color: red;
+    color: rgb(255, 255, 250);
+    font-size: 0.8rem;
+    width: 100%;
+    bottom: 0;
+    transform: translate(0, 100%);
+    box-sizing: border-box;
+    padding: 5px;
+    border-radius: 0 0 3px 3px;
+
+    &_show {
+      display: block;
     }
   }
 }
